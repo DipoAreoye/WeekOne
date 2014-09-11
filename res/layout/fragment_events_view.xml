@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp" >
+
+    <Button
+        android:id="@+id/btnRemind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent"
+        android:text="+ Remind Me" 
+        android:textSize="16dp"
+        android:paddingBottom="2dp"
+        android:textColor="@color/weekOne_color"/>
+
+    <TextView
+        android:id="@+id/eventTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="12sp"
+        android:textColor="@color/event_time_color"
+        android:text="Monday 22nd September 8:00pm - 2:00am " />
+
+    <TextView
+        android:id="@+id/eventDescLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:lineSpacingMultiplier="1.2"
+        android:paddingTop="15dp"
+        android:textColor="@color/text_color"
+        android:textSize="12sp"
+        android:text="Forget cooking on a Sunday night – join us for our Welcome BBQ! Get some free, tasty treats and meet your fellow returning students at Highfield House. Talk to your Postgrad Rep for more information." />
+
+    <TextView
+        android:id="@+id/eventLocationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:textSize="12sp"
+        android:text="Location: Highfield House, University Park"
+        android:textColor="@color/event_time_color" />
+
+    <LinearLayout
+        android:id="@+id/tagsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center" >
+    </LinearLayout>
+
+</LinearLayout>

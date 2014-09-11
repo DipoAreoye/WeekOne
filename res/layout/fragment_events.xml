@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/eventsFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e5e5e5" >
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/white"
+        android:overScrollMode="always"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                style="@style/eventLabel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="21" />
+
+            <Button
+                style="@style/eventLabel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="22" />
+
+            <Button
+                style="@style/eventLabel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="23" />
+
+            <Button
+                style="@style/eventLabel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="24" />
+
+            <Button
+                style="@style/eventLabel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="25" />
+
+            <Button
+                style="@style/eventLabel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="26" />
+
+            <Button
+                style="@style/eventLabel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="27" />
+
+            <Button
+                style="@style/eventLabel"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="28" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/horizontalScrollView1"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/horizontalScrollView1"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8.0sp"
+        android:paddingBottom="7dp"
+        android:paddingTop="7dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"  >
+    </ListView>
+
+</RelativeLayout>

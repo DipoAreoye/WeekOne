@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="7dp"
+    android:layout_marginRight="7dp"
+    android:descendantFocusability="blocksDescendants" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/bg_card"
+        android:descendantFocusability="blocksDescendants"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/eventTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:text="Morgan Stanley talk "
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/eventTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingTop="3dp"
+            android:scrollHorizontally="true"
+            android:text="7:00am - 8:00am: Sports Hall Uni park "
+            android:textColor="@color/event_time_color"
+            android:textSize="11.5sp" />
+
+        <LinearLayout
+            android:id="@+id/tagsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="7dp" >
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

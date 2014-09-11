@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="weekOne_color">#252f39</color>
+    <color name="event_time_color">#566c84</color>
+    <color name="event_circle_color">#81818e</color>
+    <color name = "reminder_color">#535264</color>
+    <color name="text_color">#515151</color>
+    <color name="category_free_color">#76bd7e</color>
+    <color name="category_meet_greet_color">#e7b584</color>
+    <color name="category_mature_color">#69b4e2</color>
+    <color name="category_non_alcoholic_color">#f08487</color>
+    <color name="category_post_grad_color">#ca78d6</color>
+    <color name="category_faith_color">#75a2cf</color>
+    <color name="category_night_out_color">#ec8477</color>
+    <color name="category_sports_color">#ec8477</color>
+    <color name="category_movie_night_color">#de92e2</color>
+    <color name="category_off_campus_color">#f1b267</color>
+    <color name="category_on_campus_color">#7376ba</color>
+    <color name="category_ticketed_color">#83c397</color>
+    <color name="category_derby_color">#9f83cf</color>
+    <color name="category_halls_color">#6192c0</color>
+
+</resources>
