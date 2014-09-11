@@ -288,7 +288,7 @@ public class MainActivity extends FragmentActivity implements
 			if (tabName.equals(Const.EVENTS)) {
 				addFragments(tabName, new EventsFragment(), null, false, true);
 			} else if (tabName.equals(Const.FEED)) {
-				addFragments(tabName, new PlaceholderFragment(), null, false,
+				addFragments(tabName, new FeedFragment(), null, false,
 						true);
 			} else if (tabName.equals(Const.INFO)) {
 				addFragments(tabName, new PlaceholderFragment(), null, false,
