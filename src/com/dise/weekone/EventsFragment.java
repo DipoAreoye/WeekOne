@@ -59,9 +59,11 @@ public class EventsFragment extends BaseFragment {
 		View rootView = inflater.inflate(R.layout.fragment_events, container,
 				false);
 
+		ab.setTitle("Week One Events");
+		
 		font = Typeface.createFromAsset(mainActivity.getAssets(),
 				"primer print.ttf");
-
+		
 		linearLayout = (LinearLayout) rootView.findViewById(R.id.linearLayout);
 		progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar1);
 
@@ -93,7 +95,7 @@ public class EventsFragment extends BaseFragment {
 
 		eventsData = loadArray();
 
-		if (eventsData[0].equals("")) {
+		if (eventsData.length > 1) {
 			handleEventsResponse();
 		}
 		if (mainActivity.isNetworkAvailable()) {
@@ -111,6 +113,10 @@ public class EventsFragment extends BaseFragment {
 
 		@Override
 		public void onClick(final View v) {
+
+			if (selectedDate == null) {
+				return;
+			}
 
 			for (int i = 0; i < linearLayout.getChildCount(); i++) {
 
@@ -157,7 +163,6 @@ public class EventsFragment extends BaseFragment {
 				if (prevSelectedButton.getText().equals(btn.getText())) {
 					btn.setBackgroundResource(R.drawable.event_circle_shape);
 				}
-				
 
 			}
 			btn.setId(i);
@@ -189,23 +194,6 @@ public class EventsFragment extends BaseFragment {
 
 	}
 
-	public void enableButtons() {
-
-		
-		
-		int l = linearLayout.getChildCount();
-
-		Log.i(null, "  number:   " + l);
-
-		for (int i = 0; i < l; i++) {
-
-			Button button = (Button) linearLayout.getChildAt(i);
-			button.setEnabled(true);
-
-		}
-
-	}
-
 	public void handleEventsResponse() {
 
 		eventsLists = new ArrayList<List<Event>>();
@@ -214,9 +202,9 @@ public class EventsFragment extends BaseFragment {
 
 			eventsLists.add(parse(rawData));
 		}
-		
-		if (selectedDate == null){
-			
+
+		if (selectedDate == null) {
+
 			selectedDate = eventsLists.get(0);
 		}
 		adaptData();
@@ -225,6 +213,9 @@ public class EventsFragment extends BaseFragment {
 
 	public void adaptData() {
 
+		
+		
+		
 		EventAdapter adapter = new EventAdapter(getListView().getContext(),
 				selectedDate);
 		setListAdapter(adapter);
@@ -335,7 +326,7 @@ public class EventsFragment extends BaseFragment {
 	public class GetEventsTask extends AsyncTask<String, Void, String[]> {
 		@Override
 		protected String[] doInBackground(String... urls) {
-			
+
 			String eventsDataArr[] = { "", "", "", "", "", "", "", "" };
 
 			try {
@@ -393,7 +384,6 @@ public class EventsFragment extends BaseFragment {
 			editor.commit();
 			eventsData = result;
 			progressBar.setVisibility(View.INVISIBLE);
-			enableButtons();
 			handleEventsResponse();
 			cacheData(eventsData);
 
@@ -421,7 +411,7 @@ public class EventsFragment extends BaseFragment {
 		for (int i = 0; i < size; i++)
 			array[i] = spfEventsData.getString(Const.KEY_EVENTS_DATA + "_" + i,
 					null);
-		
+
 		return array;
 
 	}

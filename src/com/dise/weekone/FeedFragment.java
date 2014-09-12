@@ -27,19 +27,24 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 
 import com.dise.weekone.Twitter.Authenticated;
 import com.dise.weekone.Twitter.Tweet;
 import com.dise.weekone.Twitter.Twitter;
 import com.dise.weekone.adapters.FeedAdapter;
 import com.dise.weekone.util.BaseFragment;
+import com.dise.weekone.util.Const;
 import com.google.gson.Gson;
 
-public class FeedFragment extends BaseFragment {
+public class FeedFragment extends BaseFragment implements OnScrollListener {
 
-	protected final static String ScreenName = "UoNFreshers";
+	protected final static String ScreenName = Const.UON_TWITTER_NAME;
 	protected Twitter twits;
 	protected DownloadTwitterTask downloadTwitterTask;
+	protected int tweetCount = 10;
+	protected FeedAdapter adapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,6 +53,8 @@ public class FeedFragment extends BaseFragment {
 
 		View rootView = inflater.inflate(R.layout.fragment_feed, container,
 				false);
+
+		ab.setTitle("UoN Freshers");
 
 		downloadTweets();
 
@@ -79,10 +86,34 @@ public class FeedFragment extends BaseFragment {
 		}
 	}
 
+	@Override
+	public void onScroll(AbsListView view, int firstVisibleItem,
+			int visibleItemCount, int totalItemCount) {	
+	}
+
+	@Override
+	public void onScrollStateChanged(AbsListView view, int scrollState) {
+		if (getListView().getLastVisiblePosition() == (adapter.getCount() - 1))
+
+			if (FeedAdapter.REACHED_THE_END) {
+				Log.v(null, "Loading more data");
+				FeedAdapter.REACHED_THE_END = false;
+				tweetCount += 10;
+				downloadTweets();
+
+			}
+	}
+
 	public void adaptData() {
 
-		FeedAdapter adapter = new FeedAdapter(getListView().getContext(), twits);
-		setListAdapter(adapter);
+		if (getListView().getAdapter() == null) {
+			adapter = new FeedAdapter(getActivity(), twits);
+			getListView().setOnScrollListener(this);
+			getListView().setAdapter(adapter);
+		} else {
+			Log.i(null, "Count: " + twits.size());
+			((FeedAdapter) getListView().getAdapter()).refillTweets(twits);
+		}
 
 	}
 
@@ -112,7 +143,7 @@ public class FeedFragment extends BaseFragment {
 
 			// lets write the results to the console as well
 			for (Tweet tweet : twits) {
-				Log.i(null, tweet.getText());
+				// Log.i(null, tweet.getText());
 			}
 
 			adaptData();
@@ -212,7 +243,8 @@ public class FeedFragment extends BaseFragment {
 				if (auth != null && auth.token_type.equals("bearer")) {
 
 					// Step 3: Authenticate API requests with bearer token
-					HttpGet httpGet = new HttpGet(TwitterStreamURL + screenName);
+					HttpGet httpGet = new HttpGet(TwitterStreamURL + screenName
+							+ "&count=" + tweetCount);
 
 					// construct a normal HTTPS request and include an
 					// Authorization

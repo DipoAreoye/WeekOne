@@ -6,7 +6,16 @@ public final class Const {
 
 	public static final String EVENTS = "Events", FEED = "Feed", INFO = "Info";
 	public static final String[] TABS = { EVENTS, FEED, INFO };
+	
+	
+	//XML 
+	public static final String TAG_XML_ITEM = "item";
+	public static final String TAG_XML_TITLE = "title";
+	public static final String TAG_XML_LINK = "link";
+	public static final String TAG_XML_DESCRIPTION = "content:encoded";
+	public static final String TAG_XML_CATEGORY = "category";
 
+	//EVENTS
 	public static final String[] EVENTS_URL = {
 			"http://www.welcometonottingham2014.co.uk/category/sunday-21st/feed/",
 			"http://www.welcometonottingham2014.co.uk/category/monday-22nd/feed/",
@@ -23,7 +32,7 @@ public final class Const {
 			EVENT_DATE = "eDate", EVENT_LOCATION = "eLocation",
 			EVENT_TIME = "eTime", EVENT_ID = "eId",
 			EVENT_CATEGORIES = "eCategories", EVENT_LINK = "eLink";
-
+	//CATEGORIES
 	public static final String FREE = "Free", MEET_GREET = "Meet and greet",
 			MATURE = "Mature", NON_ALCOHOLIC = "Non-alcoholic",
 			POST_GRAD = "Postgraduate", NIGHT_OUT = "Night out",
@@ -31,11 +40,11 @@ public final class Const {
 			OFF_CAMPUS = "Off campus", ON_CAMPUS = "On campus",
 			SPORTS = "Sport", TICKETED = "Ticketed", DERBY = "Derby",
 			HALLS = "Halls";
+	
+	//TWITTER
+	
+	public static final String UON_TWITTER_NAME = "UonFreshers";
 
-	public static final String TAG_XML_ITEM = "item";
-	public static final String TAG_XML_TITLE = "title";
-	public static final String TAG_XML_LINK = "link";
-	public static final String TAG_XML_DESCRIPTION = "content:encoded";
-	public static final String TAG_XML_CATEGORY = "category";
+
 
 }

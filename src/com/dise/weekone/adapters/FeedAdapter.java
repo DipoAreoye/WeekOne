@@ -26,7 +26,9 @@ public class FeedAdapter extends ArrayAdapter<Tweet> {
 	protected List<Tweet> twitter;
 	protected ViewHolder holder;
 	protected Resources r;
-	protected String regexAgo = "\\s*\\bago\\b\\s*",regexhr = "\\s*\\bhours\\b\\s*",regexDay = "\\s*\\bdays\\b\\s*";
+	public static boolean REACHED_THE_END;
+	protected String regexAgo = "\\s*\\bago\\b\\s*",
+			regexhr = "\\s*\\bhours\\b\\s*", regexDay = "\\s*\\bdays\\b\\s*";
 
 	public FeedAdapter(Context context, List<Tweet> twitter) {
 		super(context, R.layout.feed_item, twitter);
@@ -59,16 +61,20 @@ public class FeedAdapter extends ArrayAdapter<Tweet> {
 
 		String tweetText = tweet.getText();
 		holder.tweet.setText(tweetText);
-		
+
 		holder.time.setText(convertRelativeTime(tweet.getDateCreated()));
 
-		
+		if (position == getCount() - 1) {
+			REACHED_THE_END = true;
+		} else {
+			REACHED_THE_END = false;
+		}
 
 		return convertView;
 	}
-	
-	protected String convertRelativeTime(String time){
-		
+
+	protected String convertRelativeTime(String time) {
+
 		final String TWITTER = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
 
 		SimpleDateFormat sf = new SimpleDateFormat(TWITTER, Locale.ENGLISH);
@@ -78,21 +84,29 @@ public class FeedAdapter extends ArrayAdapter<Tweet> {
 			Date tweetTime = sf.parse(time);
 			long now = new Date().getTime();
 			String convertedDate = DateUtils.getRelativeTimeSpanString(
-					tweetTime.getTime(), now, DateUtils.HOUR_IN_MILLIS).toString();
-			
-		convertedDate =	convertedDate.replaceAll(regexAgo, "")
-			.replaceAll(regexDay, "d")
-			.replaceAll(regexhr, "h")
-			.replaceAll(" ", "");
-			
+					tweetTime.getTime(), now, DateUtils.HOUR_IN_MILLIS)
+					.toString();
+
+			convertedDate = convertedDate.replaceAll(regexAgo, "")
+					.replaceAll(regexDay, "d").replaceAll(regexhr, "h")
+					.replaceAll(" ", "");
+
 			return convertedDate;
 
-			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public void refillTweets(List<Tweet> twitter) {
+
+		this.twitter.clear();
+		this.twitter.addAll(twitter);
+		notifyDataSetChanged();
+		Log.i(null, twitter.size() + " counter");
+
 	}
 
 	private static class ViewHolder {
