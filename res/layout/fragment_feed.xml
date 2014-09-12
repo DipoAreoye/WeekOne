@@ -3,8 +3,7 @@
     android:id="@+id/eventsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_background_color"
-     >
+    android:background="@color/white_background_color" >
 
     <ProgressBar
         android:id="@+id/progressBar1"
@@ -21,10 +20,10 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/horizontalScrollView1"
         android:clipToPadding="false"
+        android:dividerHeight="1.3sp"
         android:paddingBottom="7dp"
         android:paddingLeft="7dp"
-        android:paddingRight="7dp"
-        android:paddingTop="7dp" >
+        android:paddingRight="7dp" >
     </ListView>
 
 </RelativeLayout>

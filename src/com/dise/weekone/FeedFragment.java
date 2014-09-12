@@ -37,8 +37,9 @@ import com.google.gson.Gson;
 
 public class FeedFragment extends BaseFragment {
 
-	final static String ScreenName = "UoNFreshers";
-	public Twitter twits;
+	protected final static String ScreenName = "UoNFreshers";
+	protected Twitter twits;
+	protected DownloadTwitterTask downloadTwitterTask;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,6 +55,14 @@ public class FeedFragment extends BaseFragment {
 
 	}
 
+	@Override
+	public void onDetach() {
+		super.onDetach();
+
+		if (downloadTwitterTask != null)
+			downloadTwitterTask.cancel(true);
+	}
+
 	// download twitter timeline after first checking to see if there is a
 	// network connection
 	public void downloadTweets() {
@@ -62,21 +71,21 @@ public class FeedFragment extends BaseFragment {
 		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
 		if (networkInfo != null && networkInfo.isConnected()) {
-			new DownloadTwitterTask().execute(ScreenName);
+
+			downloadTwitterTask = new DownloadTwitterTask();
+			downloadTwitterTask.execute(ScreenName);
 		} else {
 			Log.v(null, "No network connection available.");
 		}
 	}
 
-	
-	public void adaptData(){
-		
-		FeedAdapter adapter = new FeedAdapter(getListView().getContext(),
-				twits);
+	public void adaptData() {
+
+		FeedAdapter adapter = new FeedAdapter(getListView().getContext(), twits);
 		setListAdapter(adapter);
-		
+
 	}
-	
+
 	// Uses an AsyncTask to download a Twitter user's timeline
 	private class DownloadTwitterTask extends AsyncTask<String, Void, String> {
 		final static String CONSUMER_KEY = "B4VPpnbx7Uz7S61XNsS316qxC";
@@ -105,7 +114,7 @@ public class FeedFragment extends BaseFragment {
 			for (Tweet tweet : twits) {
 				Log.i(null, tweet.getText());
 			}
-			
+
 			adaptData();
 
 		}

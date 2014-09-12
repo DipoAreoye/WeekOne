@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:descendantFocusability="blocksDescendants"
-    android:padding="7dp" >
+    android:descendantFocusability="blocksDescendants" >
 
     <TextView
         android:id="@+id/timeLabel"
@@ -11,7 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:paddingTop="7dp"
+        android:layout_marginRight="7dp"
+        android:paddingTop="12dp"
         android:text="4h"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/text_color" />
@@ -22,8 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="7dp"
         android:fontFamily="sans-serif-light"
-        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:paddingTop="12dp"
         android:text="#UoNFreshers"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/text_color" />
@@ -32,14 +34,16 @@
         android:id="@+id/tweetLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_below="@+id/hashtagLabel"
-        android:layout_marginTop="25dp"
-        android:lineSpacingMultiplier="1.2"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="7dp"
+        android:ellipsize="end"
         android:fontFamily="sans-serif-light"
+        android:lineSpacingMultiplier="1.2"
+        android:maxLines="3"
         android:paddingTop="7dp"
-        android:paddingBottom="7dp"
-        android:text="Medium Text"
+        android:scrollHorizontally="true"
+        android:text="Becky will be tweeting around Uni Park during #uonopenday tomorrow 11am-1pm. Tweet campus questions to her! #UoNFreshers"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/weekOne_color" />
 
