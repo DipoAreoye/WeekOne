@@ -4,7 +4,8 @@
     <color name="weekOne_color">#252f39</color>
     <color name="event_time_color">#566c84</color>
     <color name="event_circle_color">#81818e</color>
-    <color name = "reminder_color">#535264</color>
+    <color name="reminder_color">#535264</color>
+    <color name="white_background_color">#fffefe</color>
     <color name="text_color">#515151</color>
     <color name="category_free_color">#76bd7e</color>
     <color name="category_meet_greet_color">#e7b584</color>

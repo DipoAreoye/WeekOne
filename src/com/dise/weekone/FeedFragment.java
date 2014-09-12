@@ -27,17 +27,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 
 import com.dise.weekone.Twitter.Authenticated;
 import com.dise.weekone.Twitter.Tweet;
 import com.dise.weekone.Twitter.Twitter;
+import com.dise.weekone.adapters.FeedAdapter;
 import com.dise.weekone.util.BaseFragment;
 import com.google.gson.Gson;
 
 public class FeedFragment extends BaseFragment {
 
 	final static String ScreenName = "UoNFreshers";
+	public Twitter twits;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,16 +47,18 @@ public class FeedFragment extends BaseFragment {
 
 		View rootView = inflater.inflate(R.layout.fragment_feed, container,
 				false);
-		
+
 		downloadTweets();
-		
+
 		return rootView;
 
 	}
-	
-	// download twitter timeline after first checking to see if there is a network connection
+
+	// download twitter timeline after first checking to see if there is a
+	// network connection
 	public void downloadTweets() {
-		ConnectivityManager connMgr = (ConnectivityManager) mainActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager connMgr = (ConnectivityManager) mainActivity
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
 		if (networkInfo != null && networkInfo.isConnected()) {
@@ -65,6 +68,15 @@ public class FeedFragment extends BaseFragment {
 		}
 	}
 
+	
+	public void adaptData(){
+		
+		FeedAdapter adapter = new FeedAdapter(getListView().getContext(),
+				twits);
+		setListAdapter(adapter);
+		
+	}
+	
 	// Uses an AsyncTask to download a Twitter user's timeline
 	private class DownloadTwitterTask extends AsyncTask<String, Void, String> {
 		final static String CONSUMER_KEY = "B4VPpnbx7Uz7S61XNsS316qxC";
@@ -82,20 +94,20 @@ public class FeedFragment extends BaseFragment {
 			return result;
 		}
 
-		// onPostExecute convert the JSON results into a Twitter object (which is an Array list of tweets
+		// onPostExecute convert the JSON results into a Twitter object (which
+		// is an Array list of tweets
 		@Override
 		protected void onPostExecute(String result) {
-			
-			Twitter twits = jsonToTwitter(result);
 
-//			 lets write the results to the console as well
+			twits = jsonToTwitter(result);
+
+			// lets write the results to the console as well
 			for (Tweet tweet : twits) {
 				Log.i(null, tweet.getText());
 			}
+			
+			adaptData();
 
-			// send the tweets to the adapter for rendering
-			ArrayAdapter<Tweet> adapter = new ArrayAdapter<Tweet>(mainActivity, android.R.layout.simple_list_item_1, twits);
-			setListAdapter(adapter);
 		}
 
 		// converts a string of JSON data into a Twitter object
@@ -130,7 +142,8 @@ public class FeedFragment extends BaseFragment {
 			StringBuilder sb = new StringBuilder();
 			try {
 
-				DefaultHttpClient httpClient = new DefaultHttpClient(new BasicHttpParams());
+				DefaultHttpClient httpClient = new DefaultHttpClient(
+						new BasicHttpParams());
 				HttpResponse response = httpClient.execute(request);
 				int statusCode = response.getStatusLine().getStatusCode();
 				String reason = response.getStatusLine().getReasonPhrase();
@@ -140,7 +153,8 @@ public class FeedFragment extends BaseFragment {
 					HttpEntity entity = response.getEntity();
 					InputStream inputStream = entity.getContent();
 
-					BufferedReader bReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"), 8);
+					BufferedReader bReader = new BufferedReader(
+							new InputStreamReader(inputStream, "UTF-8"), 8);
 					String line = null;
 					while ((line = bReader.readLine()) != null) {
 						sb.append(line);
@@ -162,20 +176,25 @@ public class FeedFragment extends BaseFragment {
 			try {
 				// URL encode the consumer key and secret
 				String urlApiKey = URLEncoder.encode(CONSUMER_KEY, "UTF-8");
-				String urlApiSecret = URLEncoder.encode(CONSUMER_SECRET, "UTF-8");
+				String urlApiSecret = URLEncoder.encode(CONSUMER_SECRET,
+						"UTF-8");
 
-				// Concatenate the encoded consumer key, a colon character, and the
+				// Concatenate the encoded consumer key, a colon character, and
+				// the
 				// encoded consumer secret
 				String combined = urlApiKey + ":" + urlApiSecret;
 
 				// Base64 encode the string
-				String base64Encoded = Base64.encodeToString(combined.getBytes(), Base64.NO_WRAP);
+				String base64Encoded = Base64.encodeToString(
+						combined.getBytes(), Base64.NO_WRAP);
 
 				// Step 2: Obtain a bearer token
 				HttpPost httpPost = new HttpPost(TwitterTokenURL);
 				httpPost.setHeader("Authorization", "Basic " + base64Encoded);
-				httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-				httpPost.setEntity(new StringEntity("grant_type=client_credentials"));
+				httpPost.setHeader("Content-Type",
+						"application/x-www-form-urlencoded;charset=UTF-8");
+				httpPost.setEntity(new StringEntity(
+						"grant_type=client_credentials"));
 				String rawAuthorization = getResponseBody(httpPost);
 				Authenticated auth = jsonToAuthenticated(rawAuthorization);
 
@@ -186,9 +205,11 @@ public class FeedFragment extends BaseFragment {
 					// Step 3: Authenticate API requests with bearer token
 					HttpGet httpGet = new HttpGet(TwitterStreamURL + screenName);
 
-					// construct a normal HTTPS request and include an Authorization
+					// construct a normal HTTPS request and include an
+					// Authorization
 					// header with the value of Bearer <>
-					httpGet.setHeader("Authorization", "Bearer " + auth.access_token);
+					httpGet.setHeader("Authorization", "Bearer "
+							+ auth.access_token);
 					httpGet.setHeader("Content-Type", "application/json");
 					// update the results with the body of the response
 					results = getResponseBody(httpGet);
@@ -199,8 +220,5 @@ public class FeedFragment extends BaseFragment {
 			return results;
 		}
 	}
-	
-	
 
-	
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="7dp" >
+
+    <TextView
+        android:id="@+id/timeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingTop="7dp"
+        android:text="4h"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/text_color" />
+
+    <TextView
+        android:id="@+id/hashtagLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="sans-serif-light"
+        android:paddingTop="7dp"
+        android:text="#UoNFreshers"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/text_color" />
+
+    <TextView
+        android:id="@+id/tweetLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/hashtagLabel"
+        android:layout_marginTop="25dp"
+        android:lineSpacingMultiplier="1.2"
+        android:fontFamily="sans-serif-light"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/weekOne_color" />
+
+</RelativeLayout>
