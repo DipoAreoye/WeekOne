@@ -823,6 +823,12 @@ containing a value of this type.
          */
         public static final int activity_horizontal_margin=0x7f08000f;
         public static final int activity_vertical_margin=0x7f080010;
+        public static final int feed_size_small_screen=0x7f080016;
+        public static final int feed_text_size_small_screen=0x7f080012;
+        public static final int margin_size_normal_screen=0x7f080015;
+        public static final int margin_size_small_screen=0x7f080014;
+        public static final int text_size_normal_screen=0x7f080013;
+        public static final int text_size_small_screen=0x7f080011;
     }
     public static final class drawable {
         public static final int ab_background_textured_themeweekone=0x7f020000;
@@ -1023,7 +1029,7 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050013;
         public static final int abs__title=0x7f05001b;
         public static final int abs__up=0x7f05000b;
-        public static final int action_settings=0x7f050044;
+        public static final int action_settings=0x7f050045;
         public static final int btnRemind=0x7f05003e;
         public static final int disableHome=0x7f050009;
         public static final int edit_query=0x7f050026;
@@ -1046,9 +1052,10 @@ containing a value of this type.
         public static final int showHome=0x7f050005;
         public static final int showTitle=0x7f050007;
         public static final int splashscreen=0x7f050033;
+        public static final int swipe_container=0x7f050042;
         public static final int tabMode=0x7f050003;
-        public static final int tab_icon=0x7f050043;
-        public static final int tabsLayout=0x7f050042;
+        public static final int tab_icon=0x7f050044;
+        public static final int tabsLayout=0x7f050043;
         public static final int tagsContainer=0x7f050036;
         public static final int timeLabel=0x7f050037;
         public static final int tweetLabel=0x7f050039;
@@ -1088,9 +1095,10 @@ containing a value of this type.
         public static final int fragment_events_view=0x7f03001a;
         public static final int fragment_feed=0x7f03001b;
         public static final int placeholder_main=0x7f03001c;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001d;
-        public static final int sherlock_spinner_item=0x7f03001e;
-        public static final int tabs_icon=0x7f03001f;
+        public static final int progress_item=0x7f03001d;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001e;
+        public static final int sherlock_spinner_item=0x7f03001f;
+        public static final int tabs_icon=0x7f030020;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;

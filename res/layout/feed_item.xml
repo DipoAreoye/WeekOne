@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="120dp"
+    android:descendantFocusability="blocksDescendants"
     android:paddingLeft="7dp"
-    android:paddingRight="7dp"
-    android:descendantFocusability="blocksDescendants" >
+    android:paddingRight="7dp" >
 
     <TextView
         android:id="@+id/timeLabel"
@@ -25,28 +25,29 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="7dp"
-        android:fontFamily="sans-serif-light"
-        android:paddingBottom="7dp"
         android:paddingTop="12dp"
         android:text="#UoNFreshers"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/text_color" />
 
-    <TextView
-        android:id="@+id/tweetLabel"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/hashtagLabel"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="7dp"
-        android:ellipsize="end"
-        android:fontFamily="sans-serif-light"
-        android:lineSpacingMultiplier="1.2"
-        android:maxLines="3"
-        android:paddingTop="7dp"
-        android:scrollHorizontally="true"
-        android:text="Becky will be tweeting around Uni Park during #uonopenday tomorrow 11am-1pm. Tweet campus questions to her! #UoNFreshers"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/weekOne_color" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/hashtagLabel" >
+
+        <TextView
+            android:id="@+id/tweetLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7dp"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.2"
+            android:maxLines="3"
+            android:scrollHorizontally="true"
+            android:text="Becky will be tweeting around Uni Park during #uonopenday tomorrow 11am-1pm. Tweet campus questions to her! #UoNFreshers"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/weekOne_color" />
+    </RelativeLayout>
 
 </RelativeLayout>

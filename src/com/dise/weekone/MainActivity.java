@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -17,7 +18,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,9 +32,10 @@ import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TextView;
 
 import com.dise.weekone.util.Const;
+import com.dise.weekone.util.MainInterface;
 
 public class MainActivity extends FragmentActivity implements
-		OnTabChangeListener {
+		OnTabChangeListener, MainInterface{
 
 	protected TabHost mTabHost;
 	protected String mSelectedTab;
@@ -40,6 +44,7 @@ public class MainActivity extends FragmentActivity implements
 	final int TEXT_ID = 100;
 	protected Button btnHeaderBack;
 	public Typeface fontAb;
+	public int screenWidth,screenHeight;
 	static final String arrTabLabel[] = { Const.EVENTS, Const.FEED, Const.INFO };
 	protected View arrTabs[] = new View[4];
 
@@ -48,7 +53,7 @@ public class MainActivity extends FragmentActivity implements
 		setContentView(R.layout.activity_main);
 
 		bar = getActionBar();
-
+	
 		fontAb = Typeface
 				.createFromAsset(getAssets(), "Montserrat-Regular.ttf");
 
@@ -77,7 +82,7 @@ public class MainActivity extends FragmentActivity implements
 		mTabHost.setup();
 		initializeTabs();
 		setListeners();
-
+		
 	}
 
 	private View createTabView(final int id) {
@@ -267,29 +272,29 @@ public class MainActivity extends FragmentActivity implements
 	public void onTabChanged(String tabName) {
 		// TODO Auto-generated method stub
 		mSelectedTab = tabName;
-		
-//		ImageView imgStatus = (ImageView) findViewById(R.id.imgInfoIcon);
-//		 
-//		// Get the color of the icon depending on system state
-//		int iconColor = android.graphics.Color.BLACK
-//		if (systemState == Status.ERROR)
-//			iconColor = android.graphics.Color.RED
-//		else if (systemState == Status.WARNING)
-//			iconColor = android.graphics.Color.YELLOW
-//		else if (systemState == Status.OK)
-//			iconColor = android.graphics.Color.GREEN
-//		 
-//		// Set the correct new color
-//		imgView.setColorFilter(iconColor, Mode.MULTIPLY);
+		setScreenSizePixels();
 
+		
+		// ImageView imgStatus = (ImageView) findViewById(R.id.imgInfoIcon);
+		//
+		// // Get the color of the icon depending on system state
+		// int iconColor = android.graphics.Color.BLACK
+		// if (systemState == Status.ERROR)
+		// iconColor = android.graphics.Color.RED
+		// else if (systemState == Status.WARNING)
+		// iconColor = android.graphics.Color.YELLOW
+		// else if (systemState == Status.OK)
+		// iconColor = android.graphics.Color.GREEN
+		//
+		// // Set the correct new color
+		// imgView.setColorFilter(iconColor, Mode.MULTIPLY);
 
 		if (hMapTabs.get(tabName).size() == 0) {
 
 			if (tabName.equals(Const.EVENTS)) {
 				addFragments(tabName, new EventsFragment(), null, false, true);
 			} else if (tabName.equals(Const.FEED)) {
-				addFragments(tabName, new FeedFragment(), null, false,
-						true);
+				addFragments(tabName, new NewFeedFragment(), null, false, true);
 			} else if (tabName.equals(Const.INFO)) {
 				addFragments(tabName, new PlaceholderFragment(), null, false,
 						true);
@@ -326,7 +331,7 @@ public class MainActivity extends FragmentActivity implements
 
 		return isAvailable;
 	}
-	
+
 	public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {
@@ -341,6 +346,25 @@ public class MainActivity extends FragmentActivity implements
 		}
 	}
 
+	public void setScreenSizePixels() {
+
+		Display display = getWindowManager().getDefaultDisplay();
+		Point size = new Point();
+		display.getSize(size);
+		screenWidth = size.x;
+		screenHeight = size.y;
+
+	}
+
+	@Override
+	public int getScreenWidth(){
+		return screenWidth;
+	}
+	
+	public int getHeight(){
+		return screenHeight;
+	}
+	
 	public int getPixles(int dp) {
 
 		int pixles;

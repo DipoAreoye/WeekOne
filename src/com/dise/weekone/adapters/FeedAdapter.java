@@ -6,40 +6,40 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import twitter4j.Status;
 import android.content.Context;
-import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.dise.weekone.MainActivity;
 import com.dise.weekone.R;
-import com.dise.weekone.Twitter.Tweet;
 
-public class FeedAdapter extends ArrayAdapter<Tweet> {
+public class FeedAdapter extends GenericAdapter<Status> {
 
 	protected Context mContext;
 
-	protected List<Tweet> twitter;
+	protected List<Status> statusList;
 	protected ViewHolder holder;
-	protected Resources r;
-	public static boolean REACHED_THE_END;
+	protected Typeface defaultFont;
 	protected String regexAgo = "\\s*\\bago\\b\\s*",
 			regexhr = "\\s*\\bhours\\b\\s*", regexDay = "\\s*\\bdays\\b\\s*";
 
-	public FeedAdapter(Context context, List<Tweet> twitter) {
-		super(context, R.layout.feed_item, twitter);
+	public FeedAdapter(Context context, List<Status> statuses) {
+		super((MainActivity) context, statuses);
 
+		defaultFont = Typeface.createFromAsset(context.getAssets(),
+				"ufonts.com_gillsans.ttf");
 		mContext = context;
-		this.twitter = twitter;
-		r = mContext.getResources();
+		statusList = statuses;
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getDataRow(int position, View convertView, ViewGroup parent) {
 		// ViewHolder holder;
 
 		if (convertView == null) {
@@ -48,48 +48,57 @@ public class FeedAdapter extends ArrayAdapter<Tweet> {
 
 			holder = new ViewHolder();
 
+			holder.hashtag = (TextView) convertView
+					.findViewById(R.id.hashtagLabel);
+			holder.hashtag.setTypeface(defaultFont);
 			holder.tweet = (TextView) convertView.findViewById(R.id.tweetLabel);
+			holder.tweet.setTypeface(defaultFont);
 			holder.time = (TextView) convertView.findViewById(R.id.timeLabel);
-
+			holder.time.setTypeface(defaultFont);
 			convertView.setTag(holder);
 
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
-		Tweet tweet = twitter.get(position);
+		Status tweet = statusList.get(position);
 
 		String tweetText = tweet.getText();
 		holder.tweet.setText(tweetText);
 
-		holder.time.setText(convertRelativeTime(tweet.getDateCreated()));
-
-		if (position == getCount() - 1) {
-			REACHED_THE_END = true;
-		} else {
-			REACHED_THE_END = false;
-		}
+		holder.time.setText(convertRelativeTime(tweet.getCreatedAt()));
 
 		return convertView;
 	}
 
-	protected String convertRelativeTime(String time) {
+	protected String convertRelativeTime(Date time) {
 
 		final String TWITTER = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
+		final String oldDate = "MMMdd,yyyy";
 
 		SimpleDateFormat sf = new SimpleDateFormat(TWITTER, Locale.ENGLISH);
 		sf.setLenient(true);
 		try {
 
-			Date tweetTime = sf.parse(time);
 			long now = new Date().getTime();
 			String convertedDate = DateUtils.getRelativeTimeSpanString(
-					tweetTime.getTime(), now, DateUtils.HOUR_IN_MILLIS)
-					.toString();
+					time.getTime(), now, DateUtils.HOUR_IN_MILLIS).toString();
 
 			convertedDate = convertedDate.replaceAll(regexAgo, "")
 					.replaceAll(regexDay, "d").replaceAll(regexhr, "h")
 					.replaceAll(" ", "");
+
+			if (convertedDate.length() > 3) {
+
+				sf = new SimpleDateFormat(oldDate, Locale.ENGLISH);
+				sf.setLenient(true);
+
+				Date tempDate = sf.parse(convertedDate);
+
+				convertedDate = (String) android.text.format.DateFormat.format(
+						"dd/MM/yy", tempDate);
+
+			}
 
 			return convertedDate;
 
@@ -100,20 +109,19 @@ public class FeedAdapter extends ArrayAdapter<Tweet> {
 		return null;
 	}
 
-	public void refillTweets(List<Tweet> twitter) {
-
-		this.twitter.clear();
-		this.twitter.addAll(twitter);
-		notifyDataSetChanged();
-		Log.i(null, twitter.size() + " counter");
-
-	}
-
 	private static class ViewHolder {
-
+		TextView hashtag;
 		TextView tweet;
 		TextView time;
 
 	}
 
+	public void refillTweets(List<Status> twitterNew) {
+		
+		statusList.clear();
+		statusList.addAll(twitterNew);
+		notifyDataSetChanged();
+
+
+	}
 }
