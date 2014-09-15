@@ -29,6 +29,7 @@
             android:footerDividersEnabled="false"
             android:overScrollFooter="@android:color/transparent"
             android:paddingBottom="7dp"
+            android:paddingTop="7dp"
             android:scrollbarStyle="outsideInset" >
         </ListView>
     </android.support.v4.widget.SwipeRefreshLayout>

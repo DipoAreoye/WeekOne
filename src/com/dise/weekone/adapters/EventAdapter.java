@@ -7,17 +7,20 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
+import android.provider.CalendarContract.Reminders;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.dise.weekone.Event;
 import com.dise.weekone.R;
+import com.dise.weekone.ui.Event;
+import com.dise.weekone.ui.MainActivity;
 
 public class EventAdapter extends ArrayAdapter<Event> {
 
@@ -61,6 +64,8 @@ public class EventAdapter extends ArrayAdapter<Event> {
 			holder.eventTime.setTypeface(fontTime);
 			holder.tagsLayout = (LinearLayout) convertView
 					.findViewById(R.id.tagsContainer);
+			holder.reminderInicator = (ImageView) convertView
+					.findViewById(R.id.reminderLabel);
 
 			convertView.setTag(holder);
 
@@ -88,6 +93,15 @@ public class EventAdapter extends ArrayAdapter<Event> {
 		}
 
 		holder.eventTime.setText(time + " : " + location);
+
+		if (((MainActivity) mContext).isReminderSet(event.getId())) {
+
+			holder.reminderInicator.setVisibility(View.VISIBLE);
+
+		} else {
+
+			holder.reminderInicator.setVisibility(View.INVISIBLE);
+		}
 
 		return convertView;
 	}
@@ -143,6 +157,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
 		LinearLayout tagsLayout;
 		TextView eventTitle;
 		TextView eventTime;
+		ImageView reminderInicator;
 
 	}
 

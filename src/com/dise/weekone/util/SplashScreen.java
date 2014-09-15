@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.dise.weekone.MainActivity;
 import com.dise.weekone.R;
+import com.dise.weekone.ui.MainActivity;
 
 public class SplashScreen extends Activity {
 

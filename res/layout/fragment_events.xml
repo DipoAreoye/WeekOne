@@ -3,7 +3,7 @@
     android:id="@+id/eventsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e5e5e5" >
+    android:background="@drawable/bg_events">
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView1"
@@ -113,9 +113,20 @@
         android:clipToPadding="false"
         android:divider="@android:color/transparent"
         android:dividerHeight="8.0sp"
-        android:paddingBottom="7dp"
-        android:paddingTop="7dp"
-        android:overScrollMode="ifContentScrolls" >
+        android:overScrollMode="ifContentScrolls"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" >
     </ListView>
+
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@android:color/white"
+        android:padding="25dp"
+        android:text="Downloading Events..."
+        android:textColor="@color/text_color" >
+    </TextView>
 
 </RelativeLayout>

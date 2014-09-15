@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Week One</string>
+    <string name="app_name">Welcome</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="menu_web_link_label">Web</string>
     <string name="category_free_short">FR</string>
     <string name="category_meet_greet_short">MG</string>
     <string name="category_mature_short">MA</string>
@@ -19,5 +19,9 @@
     <string name="category_derby_short">DB</string>
     <string name="category_halls_short">HA</string>
     <string name="error">ER</string>
+    <string name="events_tab_title">Week One Events</string>
+    <string name="twitter_tab_title">UoN Freshers</string>
+    <string name="Information_tab_title">Information</string>
+    <string name="no_internet_connection">No internet connection.\nPlease try again later.</string>
 
 </resources>

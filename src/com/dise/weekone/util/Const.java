@@ -31,7 +31,7 @@ public final class Const {
 	public static final String EVENT_TITLE = "eTitle", EVENT_DESC = "eDesc",
 			EVENT_DATE = "eDate", EVENT_LOCATION = "eLocation",
 			EVENT_TIME = "eTime", EVENT_ID = "eId",
-			EVENT_CATEGORIES = "eCategories", EVENT_LINK = "eLink";
+			EVENT_CATEGORIES = "eCategories", EVENT_LINK = "eLink",EVENT_DAY_OF_WEEK = "eDayOfWeek";
 	//CATEGORIES
 	public static final String FREE = "Free", MEET_GREET = "Meet and greet",
 			MATURE = "Mature", NON_ALCOHOLIC = "Non-alcoholic",
@@ -44,9 +44,15 @@ public final class Const {
 	//TWITTER
 	
 	public static final String UON_TWITTER_NAME = "UonFreshers";
+	public static final String WEB_VIEW_URL = "webViewUrl";
+
+	
 	
 	//DIMENS 
 	
+	//Sharedpref
+	
+	public static final String SPF_REMIND = "reminderiDs";
 
 
 

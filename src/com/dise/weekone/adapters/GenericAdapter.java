@@ -10,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.dise.weekone.R;
-import com.dise.weekone.Twitter.Tweet;
 
 /**
  * A child class shall subclass this Adapter and implement method getDataRow(int
@@ -21,10 +20,10 @@ import com.dise.weekone.Twitter.Tweet;
  * indicating that it has reached the last row.
  * 
  */
-public abstract class GenericAdapter<T> extends BaseAdapter {
+public abstract class GenericAdapter<Statuses> extends BaseAdapter {
 
 	// the main data list to save loaded data
-	protected List<T> dataList;
+	protected List<Statuses> dataList;
 
 	protected Activity mActivity;
 
@@ -38,7 +37,7 @@ public abstract class GenericAdapter<T> extends BaseAdapter {
 	public static final int VIEW_TYPE_LOADING = 0;
 	public static final int VIEW_TYPE_ACTIVITY = 1;
 
-	public GenericAdapter(Activity activity, List<T> list) {
+	public GenericAdapter(Activity activity, List<Statuses> list) {
 		mActivity = activity;
 		dataList = list;
 	}
@@ -85,9 +84,9 @@ public abstract class GenericAdapter<T> extends BaseAdapter {
 	}
 
 	@Override
-	public Tweet getItem(int position) {
+	public Statuses getItem(int position) {
 		// TODO Auto-generated method stub
-		return (Tweet) ((getItemViewType(position) == VIEW_TYPE_ACTIVITY) ? dataList
+		return (Statuses) ((getItemViewType(position) == VIEW_TYPE_ACTIVITY) ? dataList
 				.get(position) : null);
 	}
 

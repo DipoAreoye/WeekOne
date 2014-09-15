@@ -1,27 +1,30 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
 
     <LinearLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:paddingTop="15dp" >
 
-        <Button
+        <TextView
             android:id="@+id/btnRemind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@android:color/transparent"
-            android:paddingBottom="2dp"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:padding="5dp"
             android:text="+ Remind Me"
             android:textColor="@color/weekOne_color"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/eventTimeLabel"
@@ -30,7 +33,7 @@
             android:layout_gravity="center_horizontal"
             android:text="Monday 22nd September 8:00pm - 2:00am "
             android:textColor="@color/event_time_color"
-            android:textSize="12sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/eventDescLabel"
@@ -39,10 +42,10 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:lineSpacingMultiplier="1.2"
-            android:paddingTop="15dp"
+            android:paddingTop="10dp"
             android:text="Forget cooking on a Sunday night – join us for our Welcome BBQ! Get some free, tasty treats and meet your fellow returning students at Highfield House. Talk to your Postgrad Rep for more information."
             android:textColor="@color/text_color"
-            android:textSize="12sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/eventLocationLabel"
@@ -50,11 +53,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:paddingBottom="15dp"
-            android:paddingTop="15dp"
+            android:paddingBottom="14dp"
+            android:paddingTop="10dp"
             android:text="Location: Highfield House, University Park"
             android:textColor="@color/event_time_color"
-            android:textSize="12sp" />
+            android:textSize="13sp" />
 
         <LinearLayout
             android:id="@+id/tagsContainer"

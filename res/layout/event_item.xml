@@ -2,28 +2,35 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="14dp"
-    android:layout_marginRight="14dp"
     android:descendantFocusability="blocksDescendants" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/bg_card"
         android:descendantFocusability="blocksDescendants"
-        android:gravity="center_vertical"
         android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/reminderLabel"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:visibility="invisible"
+            android:src="@drawable/triangle_shape" />
 
         <TextView
             android:id="@+id/eventTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
+            android:layout_marginLeft="14dp"
+			android:paddingRight="14dp"
             android:ellipsize="end"
             android:maxLines="1"
+            android:paddingTop="14dp"
             android:scrollHorizontally="true"
             android:text="Morgan Stanley talk "
             android:textSize="19sp" />
@@ -32,8 +39,9 @@
             android:id="@+id/eventTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
+            android:layout_below="@+id/eventTitle"
+            android:layout_alignLeft="@+id/eventTitle"
+			android:paddingRight="14dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:paddingTop="3dp"
@@ -44,11 +52,14 @@
 
         <LinearLayout
             android:id="@+id/tagsContainer"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/eventTime"
             android:orientation="horizontal"
+            android:paddingBottom="3dp"
+            android:paddingLeft="6dp"
             android:paddingTop="7dp" >
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

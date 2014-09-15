@@ -4,7 +4,7 @@ import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 
-import com.dise.weekone.MainActivity;
+import com.dise.weekone.ui.MainActivity;
 
 public class BaseFragment extends ListFragment {
 
