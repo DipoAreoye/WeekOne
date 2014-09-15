@@ -125,7 +125,7 @@ public class MainActivity extends FragmentActivity implements
 				return findViewById(R.id.realtabcontent);
 			}
 		});
-		spec.setIndicator(createTabView(R.drawable.ic_tab_events));
+		spec.setIndicator(createTabView(R.drawable.tab_events_selector));
 		mTabHost.addTab(spec);
 
 		mTabHost.setCurrentTab(1);
@@ -135,7 +135,7 @@ public class MainActivity extends FragmentActivity implements
 				return findViewById(R.id.realtabcontent);
 			}
 		});
-		spec.setIndicator(createTabView(R.drawable.ic_feed));
+		spec.setIndicator(createTabView(R.drawable.tab_feed_selector));
 		mTabHost.addTab(spec);
 
 		mTabHost.setCurrentTab(2);
@@ -145,7 +145,7 @@ public class MainActivity extends FragmentActivity implements
 				return findViewById(R.id.realtabcontent);
 			}
 		});
-		spec.setIndicator(createTabView(R.drawable.ic_tab_info));
+		spec.setIndicator(createTabView(R.drawable.tab_info_selector));
 		mTabHost.addTab(spec);
 
 	}

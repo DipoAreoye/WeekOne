@@ -56,4 +56,8 @@ public final class Const {
 
 	public static final String SPF_REMIND = "reminderiDs";
 
+	//INFO
+	
+	public static final String DETAIL_PARAGRAPH = "detailParagraph";
+	public static final String AB_TITLE = "abTitle";
 }

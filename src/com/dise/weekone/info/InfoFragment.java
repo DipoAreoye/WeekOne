@@ -10,7 +10,6 @@ import android.widget.ListView;
 
 import com.dise.weekone.R;
 import com.dise.weekone.adapters.InfoAdapter;
-import com.dise.weekone.ui.ContactsFragment;
 import com.dise.weekone.ui.MapsFragment;
 import com.dise.weekone.util.BaseFragment;
 import com.dise.weekone.util.Const;
@@ -48,23 +47,45 @@ public class InfoFragment extends BaseFragment {
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
-
+		Bundle args = new Bundle();
+		
 		switch (position) {
 		case 0:
+			
 			mainActivity.addFragments(Const.INFO, new MapsFragment(), null,
 					true, true);
 			break;
 		case 1:
+			
 			// loadJubileeMap
 			break;
 		case 2:
+			
 			mainActivity.addFragments(Const.INFO, new ContactsFragment(), null,
 					true, true);
+			break;
 		case 3:
+			
+			Detailpage aboutUoNSU = new Detailpage();
+			
+			args.putString(Const.DETAIL_PARAGRAPH, mainActivity.getResources().getString(R.string.about_SU_desc));
+			args.putString(Const.AB_TITLE,mainActivity.getResources().getString(R.string.about_title));
+
+			mainActivity.addFragments(Const.INFO, aboutUoNSU, args, true, true);
+			
 			break;
 		case 4:
+			
 			sendFeedback();
+			break;
+		case 5:
 
+			Detailpage createdBy = new Detailpage();
+			
+			args.putString(Const.DETAIL_PARAGRAPH, mainActivity.getResources().getString(R.string.created_by_desc));
+			args.putString(Const.AB_TITLE,mainActivity.getResources().getString(R.string.created_by_title));
+			mainActivity.addFragments(Const.INFO, createdBy, args, true, true);
+			break;
 		default:
 			break;
 		}

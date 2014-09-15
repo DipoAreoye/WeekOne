@@ -53,4 +53,10 @@
         <item>0115 960 7607</item>
     </string-array>
 
+    <string name= "contacts_title">Contacts</string>
+    <string name="about_SU_desc">"The Students\' Union is a registered charity led by students for students. Although we often work together we\'re completely separate from the University, and whether you\'re after activities, representation, volunteering opportunities, employability, a place to hang out or just an ice-cold post-lecture pint."</string>
+    <string name= "about_title">About UoNSU</string>
+    <string name= "created_by_title">Acknowledgments</string>
+    <string name="created_by_desc">"This app is brought to you by DiSE, a software development and consultancy company formed by our very own UoN computer science students, specialising in mobile applications. If you have any enquiries or if you would like to work with us, feel free to contact me :) stephensowole@hotmail.co.uk\n\nIf you\'re interested in programming, app design or technology check out @hacksoc, Nottingham\'s highly regarded tech society.\n\nVersion 1.0"</string>
+
 </resources>

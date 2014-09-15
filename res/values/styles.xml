@@ -48,6 +48,7 @@
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_themeweekone</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_themeweekone</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Themeweekone</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_action_left</item>
     </style>
 
     <style name="ActionBar.Transparent.Themeweekone" parent="@android:style/Widget.Holo.Light.ActionBar">

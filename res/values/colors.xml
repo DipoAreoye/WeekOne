@@ -22,7 +22,9 @@
     <color name="category_derby_color">#9f83cf</color>
     <color name="category_halls_color">#6192c0</color>
     <color name="phone_number_color">#1b6bf9</color>
+    <color name="bg_color">#fffefe</color>
     
+ 
    
 
 </resources>
