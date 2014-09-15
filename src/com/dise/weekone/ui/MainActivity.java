@@ -42,6 +42,8 @@ import com.buzzbox.mob.android.scheduler.db.model.Notification;
 import com.buzzbox.mob.android.scheduler.ui.TimeUtils;
 import com.dise.weekone.R;
 import com.dise.weekone.feed.FeedFragment;
+import com.dise.weekone.info.InfoFragment;
+import com.dise.weekone.ui.eventsTab.EventsFragment;
 import com.dise.weekone.util.Const;
 
 public class MainActivity extends FragmentActivity implements
@@ -389,7 +391,7 @@ public class MainActivity extends FragmentActivity implements
 			} else if (tabName.equals(Const.FEED)) {
 				addFragments(tabName, new FeedFragment(), null, false, true);
 			} else if (tabName.equals(Const.INFO)) {
-				addFragments(tabName, new PlaceholderFragment(), null, false,
+				addFragments(tabName, new InfoFragment(), null, false,
 						true);
 			}
 		} else {
@@ -438,48 +440,7 @@ public class MainActivity extends FragmentActivity implements
 
 		return isAvailable;
 	}
-
-//    protected void createCustomNotification(){
-//    	
-//        String ns = Context.NOTIFICATION_SERVICE;
-//        NotificationManager mNotificationManager = (NotificationManager) getSystemService(ns);
-//        
-//                
-//                final Notification notification = new Notification(
-//                                R.drawable.icon_notification_cards_clubs, 
-//                                "Custom Notification Layout",
-//                                System.currentTimeMillis());    
-//                
-//        RemoteViews contentView = new RemoteViews(getPackageName(), R.layout.buzzbox_notification);
-//        contentView.setImageViewResource(R.id.icon, R.drawable.icon_notification_cards_clubs);
-//        contentView.setTextViewText(R.id.title, "Subject: Hello");
-//        contentView.setTextViewText(R.id.text, "Hello, this message is in a custom expanded view");
-//        contentView.setTextViewText(R.id.time, TimeUtils.formatTime(System.currentTimeMillis(), this));
-//        notification.contentView = contentView;
-//
-//        Intent notificationIntent = new Intent(this, HelloWorldActivity.class);
-//        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
-//        notification.contentIntent = contentIntent;
-//        
-//        
-//        
-//        mNotificationManager.notify(526536326, notification);
-//    }
 	
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.placeholder_main,
-					container, false);
-			return rootView;
-		}
-	}
-
 	public int getPixles(int dp) {
 
 		int pixles;

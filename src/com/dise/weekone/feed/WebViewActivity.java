@@ -46,6 +46,8 @@ public class WebViewActivity extends Activity {
 			if (title != null) {
 				title.setTextColor(Color.WHITE);
 				title.setTypeface(fontAb);
+				title.setTextSize(16);
+
 			}
 		}
 

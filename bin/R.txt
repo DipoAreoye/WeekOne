@@ -2,6 +2,8 @@ int anim push_left_in 0x7f040000
 int anim push_left_out 0x7f040001
 int anim push_right_in 0x7f040002
 int anim push_right_out 0x7f040003
+int array info_list 0x7f0c0000
+int array map_list 0x7f0c0001
 int attr actionBarDivider 0x7f01000e
 int attr actionBarItemBackground 0x7f01000f
 int attr actionBarSize 0x7f01000d
@@ -26,6 +28,7 @@ int attr actionOverflowButtonStyle 0x7f010009
 int attr actionSpinnerItemStyle 0x7f01003f
 int attr activatedBackgroundIndicator 0x7f010047
 int attr activityChooserViewStyle 0x7f010046
+int attr assetName 0x7f010063
 int attr background 0x7f010002
 int attr backgroundSplit 0x7f010003
 int attr backgroundStacked 0x7f01004f
@@ -57,6 +60,7 @@ int attr listPreferredItemPaddingLeft 0x7f010033
 int attr listPreferredItemPaddingRight 0x7f010034
 int attr logo 0x7f01004e
 int attr navigationMode 0x7f010049
+int attr panEnabled 0x7f010064
 int attr popupMenuStyle 0x7f01003d
 int attr preserveIconSpacing 0x7f01005d
 int attr progressBarPadding 0x7f010054
@@ -76,6 +80,7 @@ int attr searchViewVoiceIcon 0x7f010029
 int attr selectableItemBackground 0x7f01001a
 int attr spinnerDropDownItemStyle 0x7f010023
 int attr spinnerItemStyle 0x7f010022
+int attr src 0x7f010062
 int attr subtitle 0x7f01004c
 int attr subtitleTextStyle 0x7f010001
 int attr textAppearanceLargePopupMenu 0x7f01001c
@@ -100,6 +105,7 @@ int attr windowMinWidthMajor 0x7f010036
 int attr windowMinWidthMinor 0x7f010037
 int attr windowNoTitle 0x7f010040
 int attr windowSplitActionBar 0x7f010044
+int attr zoomEnabled 0x7f010065
 int bool abs__action_bar_embed_tabs 0x7f060000
 int bool abs__action_bar_expanded_action_views_exclusive 0x7f060002
 int bool abs__config_actionMenuItemAllCaps 0x7f060004
@@ -373,8 +379,10 @@ int id fragment_container 0x7f05003e
 int id hashtagLabel 0x7f050039
 int id homeAsUp 0x7f050006
 int id horizontalScrollView1 0x7f05003c
+int id imageView 0x7f050046
 int id linearLayout 0x7f050032
 int id listMode 0x7f050002
+int id list_menu_item 0x7f050045
 int id normal 0x7f050001
 int id progressBar1 0x7f05003d
 int id realtabcontent 0x01010000
@@ -385,13 +393,13 @@ int id showTitle 0x7f050007
 int id splashscreen 0x7f050033
 int id swipe_container 0x7f050043
 int id tabMode 0x7f050003
-int id tab_icon 0x7f050046
-int id tabsLayout 0x7f050045
+int id tab_icon 0x7f050048
+int id tabsLayout 0x7f050047
 int id tagsContainer 0x7f050037
 int id timeLabel 0x7f050038
 int id tweetLabel 0x7f05003a
 int id useLogo 0x7f050004
-int id web_view_item 0x7f050047
+int id web_view_item 0x7f050049
 int id webview 0x7f050044
 int id wrap_content 0x7f050000
 int integer abs__max_action_buttons 0x7f090000
@@ -423,13 +431,16 @@ int layout feed_item 0x7f030018
 int layout fragment_events 0x7f030019
 int layout fragment_events_view 0x7f03001a
 int layout fragment_feed 0x7f03001b
-int layout fragment_web_view 0x7f03001c
-int layout placeholder_main 0x7f03001d
-int layout progress_item 0x7f03001e
-int layout sherlock_spinner_dropdown_item 0x7f03001f
-int layout sherlock_spinner_item 0x7f030020
-int layout tabs_icon 0x7f030021
-int menu web_menu 0x7f0c0000
+int layout fragment_info 0x7f03001c
+int layout fragment_web_view 0x7f03001d
+int layout info_item 0x7f03001e
+int layout map_university_park 0x7f03001f
+int layout placeholder_main 0x7f030020
+int layout progress_item 0x7f030021
+int layout sherlock_spinner_dropdown_item 0x7f030022
+int layout sherlock_spinner_item 0x7f030023
+int layout tabs_icon 0x7f030024
+int menu web_menu 0x7f0d0000
 int string Information_tab_title 0x7f0a0021
 int string abs__action_bar_home_description 0x7f0a0000
 int string abs__action_bar_up_description 0x7f0a0001
@@ -462,6 +473,7 @@ int string category_ticketed_short 0x7f0a001b
 int string error 0x7f0a001e
 int string events_tab_title 0x7f0a001f
 int string hello_world 0x7f0a000e
+int string maps_title 0x7f0a0023
 int string menu_web_link_label 0x7f0a000f
 int string no_internet_connection 0x7f0a0022
 int string twitter_tab_title 0x7f0a0020
@@ -719,3 +731,8 @@ int styleable SherlockTheme_windowNoTitle 58
 int styleable SherlockTheme_windowSplitActionBar 62
 int[] styleable SherlockView { 0x010100da }
 int styleable SherlockView_android_focusable 0
+int[] styleable SubsamplingScaleImageView { 0x7f010062, 0x7f010063, 0x7f010064, 0x7f010065 }
+int styleable SubsamplingScaleImageView_assetName 1
+int styleable SubsamplingScaleImageView_panEnabled 2
+int styleable SubsamplingScaleImageView_src 0
+int styleable SubsamplingScaleImageView_zoomEnabled 3

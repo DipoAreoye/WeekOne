@@ -19,8 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dise.weekone.R;
-import com.dise.weekone.ui.Event;
 import com.dise.weekone.ui.MainActivity;
+import com.dise.weekone.ui.eventsTab.Event;
 
 public class EventAdapter extends ArrayAdapter<Event> {
 

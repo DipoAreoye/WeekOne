@@ -23,5 +23,20 @@
     <string name="twitter_tab_title">UoN Freshers</string>
     <string name="Information_tab_title">Information</string>
     <string name="no_internet_connection">No internet connection.\nPlease try again later.</string>
+    <string name="maps_title">Maps</string>
+
+    <string-array name="info_list">
+        <item>University Map</item>
+        <item>Hopper Bus Timetable</item>
+        <item>Important Contacts</item>
+        <item>About UoNSU</item>
+        <item>Send Feedback</item>
+        <item>Created By UoN Students</item>
+    </string-array>
+    <string-array name="map_list">
+        <item>University Park Campus</item>
+        <item>Jubilee Campus</item>
+        <item>Sutton Bonnigton Campus</item>
+    </string-array>
 
 </resources>

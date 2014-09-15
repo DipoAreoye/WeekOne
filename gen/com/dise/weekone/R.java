@@ -14,6 +14,10 @@ public final class R {
         public static final int push_right_in=0x7f040002;
         public static final int push_right_out=0x7f040003;
     }
+    public static final class array {
+        public static final int info_list=0x7f0c0000;
+        public static final int map_list=0x7f0c0001;
+    }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -154,6 +158,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int activityChooserViewStyle=0x7f010046;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int assetName=0x7f010063;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -384,6 +396,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
          */
         public static final int navigationMode=0x7f010049;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int panEnabled=0x7f010064;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -496,6 +516,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int spinnerItemStyle=0x7f010022;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int src=0x7f010062;
         /**  Specifies subtitle text used for navigationMode="normal" 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -662,6 +686,14 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int windowSplitActionBar=0x7f010044;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int zoomEnabled=0x7f010065;
     }
     public static final class bool {
         public static final int abs__action_bar_embed_tabs=0x7f060000;
@@ -1047,8 +1079,10 @@ containing a value of this type.
         public static final int hashtagLabel=0x7f050039;
         public static final int homeAsUp=0x7f050006;
         public static final int horizontalScrollView1=0x7f05003c;
+        public static final int imageView=0x7f050046;
         public static final int linearLayout=0x7f050032;
         public static final int listMode=0x7f050002;
+        public static final int list_menu_item=0x7f050045;
         public static final int normal=0x7f050001;
         public static final int progressBar1=0x7f05003d;
         public static final int realtabcontent=0x01010000;
@@ -1059,13 +1093,13 @@ containing a value of this type.
         public static final int splashscreen=0x7f050033;
         public static final int swipe_container=0x7f050043;
         public static final int tabMode=0x7f050003;
-        public static final int tab_icon=0x7f050046;
-        public static final int tabsLayout=0x7f050045;
+        public static final int tab_icon=0x7f050048;
+        public static final int tabsLayout=0x7f050047;
         public static final int tagsContainer=0x7f050037;
         public static final int timeLabel=0x7f050038;
         public static final int tweetLabel=0x7f05003a;
         public static final int useLogo=0x7f050004;
-        public static final int web_view_item=0x7f050047;
+        public static final int web_view_item=0x7f050049;
         public static final int webview=0x7f050044;
         public static final int wrap_content=0x7f050000;
     }
@@ -1101,15 +1135,18 @@ containing a value of this type.
         public static final int fragment_events=0x7f030019;
         public static final int fragment_events_view=0x7f03001a;
         public static final int fragment_feed=0x7f03001b;
-        public static final int fragment_web_view=0x7f03001c;
-        public static final int placeholder_main=0x7f03001d;
-        public static final int progress_item=0x7f03001e;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001f;
-        public static final int sherlock_spinner_item=0x7f030020;
-        public static final int tabs_icon=0x7f030021;
+        public static final int fragment_info=0x7f03001c;
+        public static final int fragment_web_view=0x7f03001d;
+        public static final int info_item=0x7f03001e;
+        public static final int map_university_park=0x7f03001f;
+        public static final int placeholder_main=0x7f030020;
+        public static final int progress_item=0x7f030021;
+        public static final int sherlock_spinner_dropdown_item=0x7f030022;
+        public static final int sherlock_spinner_item=0x7f030023;
+        public static final int tabs_icon=0x7f030024;
     }
     public static final class menu {
-        public static final int web_menu=0x7f0c0000;
+        public static final int web_menu=0x7f0d0000;
     }
     public static final class string {
         public static final int Information_tab_title=0x7f0a0021;
@@ -1170,6 +1207,7 @@ containing a value of this type.
         public static final int error=0x7f0a001e;
         public static final int events_tab_title=0x7f0a001f;
         public static final int hello_world=0x7f0a000e;
+        public static final int maps_title=0x7f0a0023;
         public static final int menu_web_link_label=0x7f0a000f;
         public static final int no_internet_connection=0x7f0a0022;
         public static final int twitter_tab_title=0x7f0a0020;
@@ -3457,5 +3495,76 @@ containing a value of this type.
           @attr name android:focusable
         */
         public static final int SherlockView_android_focusable = 0;
+        /** Attributes that can be used with a SubsamplingScaleImageView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #SubsamplingScaleImageView_assetName com.dise.weekone:assetName}</code></td><td></td></tr>
+           <tr><td><code>{@link #SubsamplingScaleImageView_panEnabled com.dise.weekone:panEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #SubsamplingScaleImageView_src com.dise.weekone:src}</code></td><td></td></tr>
+           <tr><td><code>{@link #SubsamplingScaleImageView_zoomEnabled com.dise.weekone:zoomEnabled}</code></td><td></td></tr>
+           </table>
+           @see #SubsamplingScaleImageView_assetName
+           @see #SubsamplingScaleImageView_panEnabled
+           @see #SubsamplingScaleImageView_src
+           @see #SubsamplingScaleImageView_zoomEnabled
+         */
+        public static final int[] SubsamplingScaleImageView = {
+            0x7f010062, 0x7f010063, 0x7f010064, 0x7f010065
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.dise.weekone.R.attr#assetName}
+          attribute's value can be found in the {@link #SubsamplingScaleImageView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dise.weekone:assetName
+        */
+        public static final int SubsamplingScaleImageView_assetName = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.dise.weekone.R.attr#panEnabled}
+          attribute's value can be found in the {@link #SubsamplingScaleImageView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dise.weekone:panEnabled
+        */
+        public static final int SubsamplingScaleImageView_panEnabled = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.dise.weekone.R.attr#src}
+          attribute's value can be found in the {@link #SubsamplingScaleImageView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.dise.weekone:src
+        */
+        public static final int SubsamplingScaleImageView_src = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.dise.weekone.R.attr#zoomEnabled}
+          attribute's value can be found in the {@link #SubsamplingScaleImageView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.dise.weekone:zoomEnabled
+        */
+        public static final int SubsamplingScaleImageView_zoomEnabled = 3;
     };
 }

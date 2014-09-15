@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -42,6 +43,10 @@
         <activity android:name="com.buzzbox.mob.android.scheduler.ui.NotificationHistoryActivity" />
         <activity
             android:name="com.dise.weekone.feed.WebViewActivity"
+            android:label="WebView" >
+        </activity>
+        <activity
+            android:name="com.dise.weekone.ui.MapView"
             android:label="WebView" >
         </activity>
 

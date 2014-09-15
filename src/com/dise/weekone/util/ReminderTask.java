@@ -9,7 +9,17 @@ import com.dise.weekone.R;
 import com.dise.weekone.ui.MainActivity;
 
 public class ReminderTask implements Task {
+	
+	protected String title;
+	protected String message;
 
+	public  ReminderTask(String title) {
+		
+		this.title = title;
+		
+	}
+		
+	
 	@Override
 	public String getTitle() {
 		return "Event Comping up";
@@ -28,8 +38,8 @@ public class ReminderTask implements Task {
 		// i.e. query the DB, connect to a web service using HttpUtils, etc..
 
 		NotificationMessage notification = new NotificationMessage(
-				"Event title", "Event is coming up in 3 hours");
-		notification.setNotificationIconResource(R.drawable.ic_launcher);
+				title, message);
+		notification.setNotificationIconResource(R.drawable.ic_welcome_logo);
 		notification.setNotificationClickIntentClass(MainActivity.class);
 
 		res.addMessage(notification);
