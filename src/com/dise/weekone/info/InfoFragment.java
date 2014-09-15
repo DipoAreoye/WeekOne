@@ -1,5 +1,7 @@
 package com.dise.weekone.info;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.ListView;
 
 import com.dise.weekone.R;
 import com.dise.weekone.adapters.InfoAdapter;
+import com.dise.weekone.ui.ContactsFragment;
 import com.dise.weekone.ui.MapsFragment;
 import com.dise.weekone.util.BaseFragment;
 import com.dise.weekone.util.Const;
@@ -52,12 +55,28 @@ public class InfoFragment extends BaseFragment {
 					true, true);
 			break;
 		case 1:
-			mainActivity.addFragments(Const.INFO, new )
 			// loadJubileeMap
+			break;
+		case 2:
+			mainActivity.addFragments(Const.INFO, new ContactsFragment(), null,
+					true, true);
+		case 3:
+			break;
+		case 4:
+			sendFeedback();
 
 		default:
 			break;
 		}
+
+	}
+
+	public void sendFeedback() {
+
+		Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+				"mailto", "dipoareoye@gmail.com", null));
+		emailIntent.putExtra(Intent.EXTRA_SUBJECT, "WeekOneFeedback");
+		startActivity(Intent.createChooser(emailIntent, "Send email..."));
 
 	}
 }

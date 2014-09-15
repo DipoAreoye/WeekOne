@@ -38,5 +38,19 @@
         <item>Jubilee Campus</item>
         <item>Sutton Bonnigton Campus</item>
     </string-array>
+    <string-array name="contact_info">
+        <item>Students\' Union Reception/Box Office:</item>
+        <item>0115 846 8800</item>
+        <item>Student Advice Centre:</item>
+        <item>0115 846 8730</item>
+        <item>student-advice-centre@nottingham.ac.uk:</item>
+        <item>Nightline</item>
+        <item>0115 951 4985</item>
+        <item>nightlineanon@nottingham.ac.uk</item>
+        <item>University of Nottingham Health Service:</item>
+        <item>0115 846 8888</item>
+        <item>D&amp;G Taxis:</item>
+        <item>0115 960 7607</item>
+    </string-array>
 
 </resources>

@@ -1,78 +1,109 @@
 package com.dise.weekone.ui;
 
+import android.app.ActionBar;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.dise.weekone.R;
-import com.dise.weekone.adapters.InfoAdapter;
-import com.dise.weekone.feed.WebViewActivity;
-import com.dise.weekone.util.BaseFragment;
-import com.dise.weekone.util.Const;
 
 public class ContactsFragment extends Fragment {
 
-	protected ListView listView;
-	String[] newsFeed;
+	protected ActionBar ab;
+	protected MainActivity mainActivity;
+	protected LinearLayout linearLayout;
+	protected Typeface font;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 
-		View rootView = inflater.inflate(R.layout.fragment_info, container,
+		View rootView = inflater.inflate(R.layout.fragment_contacts, container,
 				false);
 
-		ab.setTitle(R.string.maps_title);
+		mainActivity = (MainActivity) getActivity();
 
-		getList();
+		ab = mainActivity.getActionBar();
+
+		linearLayout = (LinearLayout) rootView.findViewById(R.id.linearlayout);
+
+		font = Typeface.createFromAsset(mainActivity.getAssets(),
+				"ufonts.com_gillsans.ttf");
+		addContactInfo();
 
 		return rootView;
 
 	}
 
-	protected void getList() {
+	public void addContactInfo() {
 
-		newsFeed = getResources().getStringArray(R.array.map_list);
+		String[] items = mainActivity.getResources().getStringArray(
+				R.array.contact_info);
 
-		InfoAdapter adapter = new InfoAdapter(getActivity(),
-				R.layout.info_item, newsFeed);
+		int counter = 0;
+		for (String item : items) {
 
-		setListAdapter(adapter);
+			LinearLayout.LayoutParams param;
+			param = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
+					LayoutParams.WRAP_CONTENT);
 
-	}
+			TextView contact = new TextView(mainActivity);
 
-	@Override
-	public void onListItemClick(ListView l, View v, int position, long id) {
+			contact.setText(item);
+			contact.setLayoutParams(param);
+			contact.setTextColor(mainActivity.getResources().getColor(R.color.weekOne_color));
+			contact.setTextSize(16);
+			contact.setTypeface(font);
+			contact.setPadding(25, 25, 25, 25);
 
-		switch (position) {
-		case 0:
-			loadMapView(Const.UNI_PARK_MAP, newsFeed[position]);
-			break;
-		case 1:
-			loadMapView(Const.JUBILEE_MAP, newsFeed[position]);
-			break;
-		case 2:
-			loadMapView(Const.STN_BON_MAP, newsFeed[position]);
-		default:
-			break;
+			if (item.contains("0115")) {
+
+				contact.setTextColor(mainActivity.getResources().getColor(
+						R.color.phone_number_color));
+				contact.setOnClickListener(onClickListener);
+
+			} else if (item.contains("@")) {
+				contact.setTextColor(mainActivity.getResources().getColor(
+						R.color.text_color));
+			}
+
+			linearLayout.addView(contact);
 		}
-
 	}
 
-	public void loadMapView(String map, String name) {
+	private OnClickListener onClickListener = new OnClickListener() {
 
-		Intent intent = new Intent(getActivity(), MapView.class);
+		@Override
+		public void onClick(View v) {
 
-		intent.putExtra(Const.MAP_NAME, map);
-		intent.putExtra(Const.CAMPUS_NAME, name);
+			TextView phoneNumber = (TextView) v;
+			String number = (String) phoneNumber.getText();
+			number = number.replace(" ", "");
 
-		startActivity(intent);
+			try {
 
-	}
+				Intent callIntent = new Intent(Intent.ACTION_DIAL);
+				callIntent.setData(Uri.parse("tel:" + number));
+				startActivity(callIntent);
+
+			} catch (ActivityNotFoundException activityException) {
+				Log.e("Calling a Phone Number", "Call failed",
+						activityException);
+			}
+
+		}
+	};
 
 }

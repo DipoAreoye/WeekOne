@@ -15,6 +15,7 @@ public final class R {
         public static final int push_right_out=0x7f040003;
     }
     public static final class array {
+        public static final int contact_info=0x7f0c0002;
         public static final int info_list=0x7f0c0000;
         public static final int map_list=0x7f0c0001;
     }
@@ -724,10 +725,10 @@ containing a value of this type.
         public static final int abs__bright_foreground_disabled_holo_light=0x7f070005;
         public static final int abs__bright_foreground_holo_dark=0x7f070002;
         public static final int abs__bright_foreground_holo_light=0x7f070003;
-        public static final int abs__primary_text_disable_only_holo_dark=0x7f07001a;
-        public static final int abs__primary_text_disable_only_holo_light=0x7f07001b;
-        public static final int abs__primary_text_holo_dark=0x7f07001c;
-        public static final int abs__primary_text_holo_light=0x7f07001d;
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f07001b;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f07001c;
+        public static final int abs__primary_text_holo_dark=0x7f07001d;
+        public static final int abs__primary_text_holo_light=0x7f07001e;
         public static final int category_derby_color=0x7f070018;
         public static final int category_faith_color=0x7f070011;
         public static final int category_free_color=0x7f07000c;
@@ -744,6 +745,7 @@ containing a value of this type.
         public static final int category_ticketed_color=0x7f070017;
         public static final int event_circle_color=0x7f070008;
         public static final int event_time_color=0x7f070007;
+        public static final int phone_number_color=0x7f07001a;
         public static final int reminder_color=0x7f070009;
         public static final int text_color=0x7f07000b;
         public static final int weekOne_color=0x7f070006;
@@ -1066,41 +1068,42 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050013;
         public static final int abs__title=0x7f05001b;
         public static final int abs__up=0x7f05000b;
-        public static final int btnRemind=0x7f05003f;
+        public static final int btnRemind=0x7f050040;
         public static final int disableHome=0x7f050009;
         public static final int edit_query=0x7f050026;
-        public static final int eventDescLabel=0x7f050041;
-        public static final int eventLocationLabel=0x7f050042;
+        public static final int eventDescLabel=0x7f050042;
+        public static final int eventLocationLabel=0x7f050043;
         public static final int eventTime=0x7f050036;
-        public static final int eventTimeLabel=0x7f050040;
+        public static final int eventTimeLabel=0x7f050041;
         public static final int eventTitle=0x7f050035;
-        public static final int eventsFragment=0x7f05003b;
-        public static final int fragment_container=0x7f05003e;
+        public static final int eventsFragment=0x7f05003c;
+        public static final int fragment_container=0x7f05003f;
         public static final int hashtagLabel=0x7f050039;
         public static final int homeAsUp=0x7f050006;
-        public static final int horizontalScrollView1=0x7f05003c;
-        public static final int imageView=0x7f050046;
+        public static final int horizontalScrollView1=0x7f05003d;
+        public static final int imageView=0x7f050047;
         public static final int linearLayout=0x7f050032;
+        public static final int linearlayout=0x7f05003b;
         public static final int listMode=0x7f050002;
-        public static final int list_menu_item=0x7f050045;
+        public static final int list_menu_item=0x7f050046;
         public static final int normal=0x7f050001;
-        public static final int progressBar1=0x7f05003d;
+        public static final int progressBar1=0x7f05003e;
         public static final int realtabcontent=0x01010000;
         public static final int reminderLabel=0x7f050034;
         public static final int showCustom=0x7f050008;
         public static final int showHome=0x7f050005;
         public static final int showTitle=0x7f050007;
         public static final int splashscreen=0x7f050033;
-        public static final int swipe_container=0x7f050043;
+        public static final int swipe_container=0x7f050044;
         public static final int tabMode=0x7f050003;
-        public static final int tab_icon=0x7f050048;
-        public static final int tabsLayout=0x7f050047;
+        public static final int tab_icon=0x7f050049;
+        public static final int tabsLayout=0x7f050048;
         public static final int tagsContainer=0x7f050037;
         public static final int timeLabel=0x7f050038;
         public static final int tweetLabel=0x7f05003a;
         public static final int useLogo=0x7f050004;
-        public static final int web_view_item=0x7f050049;
-        public static final int webview=0x7f050044;
+        public static final int web_view_item=0x7f05004a;
+        public static final int webview=0x7f050045;
         public static final int wrap_content=0x7f050000;
     }
     public static final class integer {
@@ -1132,18 +1135,19 @@ containing a value of this type.
         public static final int activity_splash=0x7f030016;
         public static final int event_item=0x7f030017;
         public static final int feed_item=0x7f030018;
-        public static final int fragment_events=0x7f030019;
-        public static final int fragment_events_view=0x7f03001a;
-        public static final int fragment_feed=0x7f03001b;
-        public static final int fragment_info=0x7f03001c;
-        public static final int fragment_web_view=0x7f03001d;
-        public static final int info_item=0x7f03001e;
-        public static final int map_university_park=0x7f03001f;
-        public static final int placeholder_main=0x7f030020;
-        public static final int progress_item=0x7f030021;
-        public static final int sherlock_spinner_dropdown_item=0x7f030022;
-        public static final int sherlock_spinner_item=0x7f030023;
-        public static final int tabs_icon=0x7f030024;
+        public static final int fragment_contacts=0x7f030019;
+        public static final int fragment_events=0x7f03001a;
+        public static final int fragment_events_view=0x7f03001b;
+        public static final int fragment_feed=0x7f03001c;
+        public static final int fragment_info=0x7f03001d;
+        public static final int fragment_web_view=0x7f03001e;
+        public static final int info_item=0x7f03001f;
+        public static final int map_university_park=0x7f030020;
+        public static final int placeholder_main=0x7f030021;
+        public static final int progress_item=0x7f030022;
+        public static final int sherlock_spinner_dropdown_item=0x7f030023;
+        public static final int sherlock_spinner_item=0x7f030024;
+        public static final int tabs_icon=0x7f030025;
     }
     public static final class menu {
         public static final int web_menu=0x7f0d0000;
